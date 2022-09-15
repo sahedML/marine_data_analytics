@@ -4,15 +4,19 @@
 
 # creating a plankton biomass dataframe from zooscanner count
 import pandas as pd
-import seawater as sw
 
 # loading the initial files and explore
 df_large = pd.read_csv("/home/sahed/Desktop/office/2.m138t_mn_midi_dataframe_large.txt", "\t")
 print(df_large.head())
 print(df_large.shape)
+print(df_large.info)
+print(df_large.describe())
+
 df_medium = pd.read_csv("/home/sahed/Desktop/office/3. m138t_mn_midi_dataframe_medium.txt", "\t")
 print(df_large.head())
 print(df_large.shape)
+print(df_large.info)
+print(df_large.describe())
 
 # merging initial dataframe which contains plankton variables
 df_merged = pd.merge(df_large, df_medium, how="left", on=["haul", "net", "category", "D_N"])
@@ -24,7 +28,7 @@ data = {
 
     "haul": ["mn01", "mn02", "mn03", "mn04",
              "mn05", "mn06", "mn07", "mn08",
-             "mn09", "mn10","mn11", "mn12",
+             "mn09", "mn10", "mn11", "mn12",
              "mn13", "mn14", "mn15", "mn16"],
 
     "on_off": ["offshore", "offshore", "onshore", "onshore",
@@ -35,7 +39,7 @@ data = {
 on_off_df = pd.DataFrame.from_dict(data)
 df_final = pd.merge(df_final, on_off_df, on="haul", how="left")
 
-# add abundance and biomass
+# add abundance and biomass variables
 df_final["abundance"] = df_final['abundance_x'] + df_final['abundance_y']
 df_final["biomass"] = df_final['biomass_x'] + df_final['biomass_y']
 df_final = df_final.drop(df_final.columns[
@@ -50,7 +54,8 @@ df_final.rename(columns=
                  "salinity_x": "salinity",
                  "volume_x": "volume",
                  'depth_x': 'depth',
-                 "delta_values_x": "depth_layer"}, inplace=True)
+                 "delta_values_x": "depth_layer"}, 
+                inplace=True)
 
 # create a dictionary to have longitude and latitude data
 lat_long_df = {"haul":
@@ -67,7 +72,8 @@ lat_long_df = {"haul":
                "longitude": [-78.5685, -78.564, -78.271, -78.270,
                              -77.813, -77.812, -77.439, -77.439,
                              -76.660, -76.660, -77.169, -77.177,
-                             -75.444, -75.44, -76.105, -76.106]}
+                             -75.444, -75.44, -76.105, -76.106]
+              }
 
 lats_logs_df2 = pd.DataFrame.from_dict(lat_long_df)
 df_final=pd.merge(df_final, lats_logs_df2, on="haul", how="outer")
