@@ -1,6 +1,7 @@
 
 # GEOMAR Helmholtz Centre for Ocean Research Kiel, Germany
 # Project: SFB 754, January 2019
+# Sahed Ahmed Palash, Research Assistant
 
 # merging cruise_metadata with plankton data
 import pandas as pd
