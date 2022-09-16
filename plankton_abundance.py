@@ -2,7 +2,7 @@
 # GEOMAR Helmholtz Centre for Ocean Research, Kiel, Germany
 # Proejct: SFB 754, February 2019
 
-# creating a plankton biomass dataframe from zooscanner count
+# plankton biomass and abundance analytics using large and medium plankton data
 import pandas as pd
 
 # loading the initial files and explore
