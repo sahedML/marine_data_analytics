@@ -1,6 +1,7 @@
 
 # GEOMAR Helmholtz Centre for Ocean Research, Kiel, Germany
 # Project: SFB 754, January 2019
+# Sahed Ahmed Palash, Research Assistant
 
 # extract environmental variables from cruise metadata
 import pandas as pd
