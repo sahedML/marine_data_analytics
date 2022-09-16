@@ -2,7 +2,7 @@
 # Project: SFB 754, April 2019
 # Sahed Ahmed Palash, Research Assistant
 
-# extract conductivity, temperature and depth (ctd) data and create a new file
+# extract conductivity, temperature and depth (ctd) data and create a plot with oxygen profile
 import codecs
 import matplotlib.pyplot as plt
 import numpy as np
