@@ -1,6 +1,7 @@
 
 # GEOMAR Helmholtz Centre for Ocean Research Kiel, Germany
 # Project: SFB 754, February 2019
+# Sahed Ahmed Palash, Research Assistant
 
 # create station-wise subset and plot them
 import numpy as np
